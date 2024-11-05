@@ -1,0 +1,25 @@
+{
+  "name": "autoprefixer-exe",
+  "version": "1.0.0",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.20",
+    "commander": "^12.1.0",
+    "pino": "^9.5.0",
+    "pino-pretty": "^11.3.0",
+    "postcss": "^8.4.47"
+  },
+  "scripts": {
+    "build": "bun run build-linux & bun run build-mac & bun run build-windows",
+    "build-linux": "bun build --compile --minify --sourcemap ./index.ts --target=bun-linux-x64 --outfile out/apf",
+    "build-mac": "bun build --compile --minify --sourcemap ./index.ts --target=bun-darwin-x64 --outfile out/apf-mac",
+    "build-windows": "bun build --compile --minify --sourcemap ./index.ts --target=bun-windows-x64 --outfile out/apf-win.exe"
+  }
+}
